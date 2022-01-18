@@ -12,11 +12,17 @@ abstract class Animal {
     public void speak() {
         System.out.println("I am an animal");
     }
+    public void eat() {
+        System.out.println("The animal is eating food");
+    }
 }
 
 class Dog extends Animal {
     public void speak() {
         System.out.println("Woof!");
+    }
+    public void eat() {
+        System.out.println("The dog is eating dog food!");
     }
 }
 
@@ -46,7 +52,7 @@ public class PolymorphismDemo {
          * declared as an Animal on the left side.
          */
 
-        Animal animal = new Animal();
+        Animal animal = new Dog();
 
         /*
          * 2. Call the speak method and run the program.
@@ -54,6 +60,8 @@ public class PolymorphismDemo {
          * Even though the variable was declared as an Animal, at run time it
          * will behave like whatever Animal subclass it was instantiated as.
          */
+        animal.speak();
+        animal.eat();
 
         /*
          * 3. Comment out the speak method of the Animal subclass you chose and

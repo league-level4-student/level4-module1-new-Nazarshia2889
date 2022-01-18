@@ -44,6 +44,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	capitalize cp = new capitalize("This is another test");
+        assertEquals("THIS IS ANOTHER TEST", cp.funkifyText());
     }
 }

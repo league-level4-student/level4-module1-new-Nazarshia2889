@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -55,8 +57,8 @@ import javax.swing.Timer;
 
 public class PolymorphWindow extends JPanel implements ActionListener {
 
-    public static final int WIDTH = 900;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 50;
+    public static final int HEIGHT = 50;
 
     private JFrame window;
     private Timer timer;
@@ -80,9 +82,15 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         
         polymorphs = new ArrayList<Polymorph>();
         polymorphs.add(new BluePolymorph(50, 50, WIDTH, HEIGHT));
-        polymorphs.add(new RedPolymorph(50, 50, WIDTH, HEIGHT));
+        polymorphs.add(new RedPolymorph(200, 200, WIDTH, HEIGHT));
         polymorphs.add(new MovingMorph(50, 50, WIDTH, HEIGHT));
-
+        polymorphs.add(new MouseMorph(50, 50, WIDTH, HEIGHT));
+        polymorphs.add(new ClickMorph(50, 50, WIDTH, HEIGHT));
+        polymorphs.add(new ClickMorph2(400, 200, WIDTH, HEIGHT));
+        
+        window.addMouseMotionListener((MouseMotionListener) polymorphs.get(3));
+        window.addMouseListener((MouseListener) polymorphs.get(4));
+        window.addMouseListener((MouseListener) polymorphs.get(5));
 //        bluePoly = new BluePolymorph(50, 50, WIDTH, HEIGHT);
 //        redPoly = new RedPolymorph(50, 50, WIDTH, HEIGHT);
 //        movingPoly = new MovingMorph(50, 50, WIDTH, HEIGHT);

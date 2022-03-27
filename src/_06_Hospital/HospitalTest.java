@@ -51,12 +51,12 @@ public class HospitalTest extends TestCase {
     public void testDoctorsHaveSpecialties() throws Exception {
         
         Surgeon testSurgeon = new Surgeon();
-        assertEquals(true, testSurgeon.getPerformsSurgery());
-        assertEquals(false, testSurgeon.getMakesHouseCalls());
+        assertEquals(true, testSurgeon.performsSurgery());
+        assertEquals(false, testSurgeon.makesHouseCalls());
 
         GeneralPractitioner testGP = new GeneralPractitioner();
-        assertEquals(true, testGP.getMakesHouseCalls());
-        assertEquals(false, testGP.getPerformsSurgery());
+        assertEquals(true, testGP.makesHouseCalls());
+        assertEquals(false, testGP.performsSurgery());
     }
 
     public void testAssignDoctor() throws Exception {
@@ -72,10 +72,10 @@ public class HospitalTest extends TestCase {
     // When you check a patient's pulse, they feel cared for
     public void testCheckPulse() throws Exception {
         Patient testPatient = new Patient();
-        //Note: Getters for booleans generally use "is" instead of "get"
-        assertEquals(false, testPatient.isFeelsCaredFor());
+        //Note: Accessors for booleans typically don't use "get"
+        assertEquals(false, testPatient.feelsCaredFor());
         testPatient.checkPulse();
-        assertEquals(true, testPatient.isFeelsCaredFor());
+        assertEquals(true, testPatient.feelsCaredFor());
     }
 
     // Doctors work on their Patients by checking their pulses.
@@ -85,11 +85,11 @@ public class HospitalTest extends TestCase {
         Patient macky = new Patient();
         testDoctor.assignPatient(max);
         testDoctor.assignPatient(macky);
-        assertEquals(false, max.isFeelsCaredFor());
-        assertEquals(false, macky.isFeelsCaredFor());
+        assertEquals(false, max.feelsCaredFor());
+        assertEquals(false, macky.feelsCaredFor());
         testDoctor.doMedicine();
-        assertEquals(true, max.isFeelsCaredFor());
-        assertEquals(true, macky.isFeelsCaredFor());
+        assertEquals(true, max.feelsCaredFor());
+        assertEquals(true, macky.feelsCaredFor());
     }
 
     public void testDoctorsCanOnlyHandle3Patients() throws Exception {

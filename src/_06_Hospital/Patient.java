@@ -1,7 +1,7 @@
 package _06_Hospital;
 
 public class Patient {
-	private boolean cared;
+	public boolean cared;
 	
 	public Patient() {
 		cared = false;

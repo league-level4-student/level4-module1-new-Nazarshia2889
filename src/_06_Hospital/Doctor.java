@@ -11,13 +11,19 @@ public abstract class Doctor {
 		patients = new ArrayList<Patient>();
 	}
 	
-	public boolean doMedicine() {
-		medicine = true;
-		return medicine;
+	public void doMedicine() {
+		for(int i = 0;i<patients.size();i++) {
+			patients.get(i).cared = true;
+		}
 	}
 	
-	public void assignPatient(Patient p) {
-		patients.add(p);
+	public void assignPatient(Patient p) throws DoctorFullException {
+		if(patients.size() == 3) {
+			throw new DoctorFullException();
+		}
+		else {
+			patients.add(p);
+		}
 	}
 	
 	public ArrayList getPatients() {
